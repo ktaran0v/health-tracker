@@ -1,0 +1,11 @@
+{% extends 'tracker/base.html' %}
+{% block content %}
+<h2>Удалить запись</h2>
+<p>Вы уверены, что хотите удалить запись <strong>{{ record.patient_name }}</strong> от {{ record.date }}?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Удалить</button>
+  <a href="{% url 'record_list' %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}
